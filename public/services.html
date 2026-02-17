@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Laundry Services</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">LaundryPro</div>
+        <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/services" class="active">Services</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <button class="user-btn">Username</button>
+    </nav>
+
+    <!-- SERVICES HERO SECTION -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Our <span>Services</span></h1>
+            <p>Choose from our wide range of professional laundry services</p>
+        </div>
+    </section>
+
+    <!-- SERVICES BOOKING SECTION -->
+    <section class="services-section">
+        <div class="services-container">
+            <!-- LEFT SIDE - Services List -->
+            <div class="services-left">
+                <h2>Our Services</h2>
+                <p class="services-subtitle">Click On The Add To Cart Button To Add The Services To Your Cart</p>
+                
+                <!-- Service 1: Dry Cleaning -->
+                <div class="service-item" data-service="dry-cleaning" data-price="200">
+                    <div class="service-info">
+                        <span class="service-icon">👔</span>
+                        <span class="service-name">Dry Cleaning</span>
+                        <span class="dot">•</span>
+                        <span class="service-price">₹200.00</span>
+                    </div>
+                    <button class="service-btn add-btn" onclick="addToCart('dry-cleaning', 'Dry Cleaning', 200)">
+                        Add Item <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 2: Wash & Fold -->
+                <div class="service-item" data-service="wash-fold" data-price="100">
+                    <div class="service-info">
+                        <span class="service-icon">🧺</span>
+                        <span class="service-name">Wash & Fold</span>
+                        <span class="dot">•</span>
+                        <span class="service-price">₹100.00</span>
+                    </div>
+                    <button class="service-btn add-btn" onclick="addToCart('wash-fold', 'Wash & Fold', 100)">
+                        Add Item <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 3: Ironing -->
+                <div class="service-item" data-service="ironing" data-price="30">
+                    <div class="service-info">
+                        <span class="service-icon">👕</span>
+                        <span class="service-name">Ironing</span>
+                        <span class="dot">•</span>
+                        <span class="service-price">₹30.00</span>
+                    </div>
+                    <button class="service-btn add-btn" onclick="addToCart('ironing', 'Ironing', 30)">
+                        Add Item <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 4: Stain Removal -->
+                <div class="service-item" data-service="stain-removal" data-price="500">
+                    <div class="service-info">
+                        <span class="service-icon">✨</span>
+                        <span class="service-name">Stain Removal</span>
+                        <span class="dot">•</span>
+                        <span class="service-price">₹500.00</span>
+                    </div>
+                    <button class="service-btn add-btn" onclick="addToCart('stain-removal', 'Stain Removal', 500)">
+                        Add Item <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 5: Leather Cleaning -->
+                <div class="service-item" data-service="leather-cleaning" data-price="999">
+                    <div class="service-info">
+                        <span class="service-icon">🧤</span>
+                        <span class="service-name">Leather & Suede Cleaning</span>
+                        <span class="dot">•</span>
+                        <span class="service-price">₹999.00</span>
+                    </div>
+                    <button class="service-btn add-btn" onclick="addToCart('leather-cleaning', 'Leather & Suede Cleaning', 999)">
+                        Add Item <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 6: Wedding Dress -->
+                <div class="service-item" data-service="wedding-dress" data-price="2800">
+                    <div class="service-info">
+                        <span class="service-icon">👗</span>
+                        <span class="service-name">Wedding Dress Cleaning</span>
+                        <span class="dot">•</span>
+                        <span class="service-price">₹2800.00</span>
+                    </div>
+                    <button class="service-btn add-btn" onclick="addToCart('wedding-dress', 'Wedding Dress Cleaning', 2800)">
+                        Add Item <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                
+                <!-- Info text -->
+                <div class="services-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Add the items to the cart and book now</span>
+                </div>
+            </div>
+            
+            <!-- RIGHT SIDE: Cart + Booking Form -->
+            <div class="services-right">
+                <!-- Cart Card -->
+                <div class="cart-card">
+                    <h3>Added Items</h3>
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Service Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-body">
+                        </tbody>
+                    </table>
+                    <div class="cart-total">
+                        <span>Total Amount</span>
+                        <span id="total-amount">₹ 0.00</span>
+                    </div>
+                </div>
+                
+                <!-- Booking Form -->
+                <div class="booking-form-card">
+                    <h3>Book Now</h3>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Please Enter Your Full Name">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email ID</label>
+                                <input type="email" id="email" placeholder="Please Enter Your Email ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+91-XXXXXXXXXX">
+                            </div>
+                        </div>
+                        <button type="button" class="book-now-btn" id="book-btn" onclick="handleBooking()">Book now</button>
+                    </form>
+                    
+                    <!-- Error message for empty cart -->
+                    <div class="error-message" id="error-msg" style="display: none;">
+                        <p><i class="fas fa-exclamation-circle"></i> Please add at least one service to your cart!</p>
+                    </div>
+                    
+                    <!-- Error message for empty name -->
+                    <div class="error-message" id="error-name" style="display: none;">
+                        <p><i class="fas fa-exclamation-circle"></i> Please enter your Full Name!</p>
+                    </div>
+                    
+                    <!-- Error message for empty email -->
+                    <div class="error-message" id="error-email" style="display: none;">
+                        <p><i class="fas fa-exclamation-circle"></i> Please enter your Email ID!</p>
+                    </div>
+                    
+                    <!-- Error message for invalid email -->
+                    <div class="error-message" id="error-email-invalid" style="display: none;">
+                        <p><i class="fas fa-exclamation-circle"></i> Please enter a valid Email Address!</p>
+                    </div>
+                    
+                    <!-- Error message for empty phone -->
+                    <div class="error-message" id="error-phone" style="display: none;">
+                        <p><i class="fas fa-exclamation-circle"></i> Please enter your Phone Number!</p>
+                    </div>
+                    
+                    <!-- Success message -->
+                    <div class="success-message" id="success-msg" style="display: none;">
+                        <p>Thank you For Booking the Service! We will get back to you soon!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-logo">LaundryPro</h3>
+                <p class="footer-about">We are dedicated to providing premium laundry and dry cleaning services that bring freshness and care to your wardrobe.We believe laundry day should be stress-free.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p class="contact-item"><i class="fas fa-envelope"></i> naseem.ahamad.du@gmail.com</p>
+                <p class="contact-item"><i class="fas fa-phone"></i> +91 8130780782</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Laundry Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/script.js"></script>
+</body>
+</html>
